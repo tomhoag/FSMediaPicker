@@ -28,10 +28,12 @@ typedef enum {
 typedef enum {
     FSEditModeStandard = 0,
     FSEditModeCircular = 1,
-    FSEditModeNone     = 2
+    FSEditModeHexagon  = 2,
+    FSEditModeNone     = 3
 } FSEditMode;
 
 UIKIT_EXTERN NSString const * UIImagePickerControllerCircularEditedImage;
+UIKIT_EXTERN NSString const * UIImagePickerControllerHexagonalEditedImage;
 
 @protocol FSMediaPickerDelegate <NSObject>
 
@@ -69,12 +71,14 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerCircularEditedImage;
 @property (readonly, nonatomic) NSDictionary *mediaMetadata;
 @property (readonly, nonatomic) FSMediaType  mediaType;
 @property (readonly, nonatomic) UIImage      *circularEditedImage;
+@property (readonly, nonatomic) UIImage      *hexagonalEditedImage;
 
 @end
 
 @interface UIImage (FSMediaPicker)
 
 - (UIImage *)circularImage;
+- (UIImage *)hexagonalImage;
 
 @end
 
