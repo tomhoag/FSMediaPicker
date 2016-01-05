@@ -141,129 +141,102 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
 {
     if ([viewController isKindOfClass:NSClassFromString(@"PLUIImageViewController")] && self.editMode && [navigationController.viewControllers count] == 3) {
         
-        if(self.editMode == FSEditModeHexagon) {
-            CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-            
-            UIView *plCropOverlay = [[viewController.view.subviews objectAtIndex:1] subviews][0];
-            
-            plCropOverlay.hidden = YES;
-            
-            int position = 0;
-            
-            if (screenHeight == 568){
-                position = 124;
-            } else {
-                position = 80;
-            }
-            
-            BOOL isIpad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-            
-            CAShapeLayer *hexagonLayer = [CAShapeLayer layer];
-            CGFloat diameter = isIpad ? MAX(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height) : MIN(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height);
-
-            CGRect rect = CGRectMake(0.0f, position, diameter, diameter);
-            //CGFloat xRadius = CGRectGetWidth(rect) / 2;
-            //CGFloat yRadius = CGRectGetHeight(rect) / 2;
-            CGFloat radius = MIN(CGRectGetWidth(rect)/2, CGRectGetHeight(rect)/2);
-            
-            CGFloat centerX = CGRectGetMidX(rect);
-            CGFloat centerY = CGRectGetMidY(rect);
-            
-            UIBezierPath *hexagonPath = [UIBezierPath bezierPath];
-            
-            //[hexagonPath moveToPoint:CGPointMake(centerX + xRadius, centerY + 0)];
-            [hexagonPath moveToPoint:CGPointMake(centerX + radius, centerY + 0)];
-            
-            for (NSUInteger i = 0; i < 6; i++) {
-                CGFloat theta = 2 * M_PI / 6 * i;
-                //CGFloat xCoordinate = centerX + xRadius * cosf(theta);
-                //CGFloat yCoordinate = centerY + yRadius * sinf(theta);
-                CGFloat x = centerX + radius * cosf(theta);
-                CGFloat y = centerY + radius * sinf(theta);
-                [hexagonPath addLineToPoint:CGPointMake(x, y)];
-            }
-            
-            [hexagonPath closePath];
-            [hexagonPath setUsesEvenOddFillRule:YES];
-            [hexagonLayer setPath:[hexagonPath CGPath]];
-            [hexagonLayer setFillColor:[[UIColor clearColor] CGColor]];
-            
-            CGFloat bottomBarHeight = isIpad ? 51 : 72;
-            
-            UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, diameter, screenHeight - bottomBarHeight) cornerRadius:0];
-            [path appendPath:hexagonPath];
-            [path setUsesEvenOddFillRule:YES];
-            
-            CAShapeLayer *fillLayer = [CAShapeLayer layer];
-            fillLayer.name = @"fillLayer";
-            fillLayer.path = path.CGPath;
-            fillLayer.fillRule = kCAFillRuleEvenOdd;
-            fillLayer.fillColor = [UIColor blackColor].CGColor;
-            fillLayer.opacity = 0.5;
-            [viewController.view.layer addSublayer:fillLayer];
-            
-            
-            if (!isIpad) {
-                UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 320, 50)];
-                [moveLabel setText:@"Move and Scale"];
-                [moveLabel setTextAlignment:NSTextAlignmentCenter];
-                [moveLabel setTextColor:[UIColor whiteColor]];
-                [viewController.view addSubview:moveLabel];
-            }
+        CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+        
+        UIView *plCropOverlay = [[viewController.view.subviews objectAtIndex:1] subviews][0];
+        
+        plCropOverlay.hidden = YES;
+        
+        int position = 0;
+        
+        if (screenHeight == 568){
+            position = 124;
+        } else {
+            position = 80;
         }
         
+        BOOL isIpad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
         
-        if(self.editMode == FSEditModeCircular || self.editMode == FSEditModeNone) {
-            CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-            
-            UIView *plCropOverlay = [[viewController.view.subviews objectAtIndex:1] subviews][0];
-            
-            plCropOverlay.hidden = YES;
-            
-            int position = 0;
-            
-            if (screenHeight == 568){
-                position = 124;
-            } else {
-                position = 80;
-            }
-            
-            BOOL isIpad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-            
-            CAShapeLayer *circleLayer = [CAShapeLayer layer];
-            
-            CGFloat diameter = isIpad ? MAX(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height) : MIN(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height);
-            
-            UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect:
-                                        CGRectMake(0.0f, position, diameter, diameter)];
-            [circlePath setUsesEvenOddFillRule:YES];
-            [circleLayer setPath:[circlePath CGPath]];
-            [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
-
-            CGFloat bottomBarHeight = isIpad ? 51 : 72;
-            
-            UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, diameter, screenHeight - bottomBarHeight) cornerRadius:0];
-            [path appendPath:circlePath];
-            [path setUsesEvenOddFillRule:YES];
-            
-            CAShapeLayer *fillLayer = [CAShapeLayer layer];
-            fillLayer.name = @"fillLayer";
-            fillLayer.path = path.CGPath;
-            fillLayer.fillRule = kCAFillRuleEvenOdd;
-            fillLayer.fillColor = [UIColor blackColor].CGColor;
-            fillLayer.opacity = 0.5;
-            [viewController.view.layer addSublayer:fillLayer];
-            
-            
-            if (!isIpad) {
-                UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 320, 50)];
-                [moveLabel setText:@"Move and Scale"];
-                [moveLabel setTextAlignment:NSTextAlignmentCenter];
-                [moveLabel setTextColor:[UIColor whiteColor]];
-                [viewController.view addSubview:moveLabel];
-            }
+        if (!isIpad) {
+            UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 320, 50)];
+            [moveLabel setText:@"Move and Scale"];
+            [moveLabel setTextAlignment:NSTextAlignmentCenter];
+            [moveLabel setTextColor:[UIColor whiteColor]];
+            [viewController.view addSubview:moveLabel];
         }
         
+        switch (self.editMode) {
+            case FSEditModeNone: // No editing of image 
+            case FSEditModeStandard: // 0 will never occur
+                break;
+            
+            case FSEditModeHexagon: {
+                CAShapeLayer *hexagonLayer = [CAShapeLayer layer];
+                CGFloat diameter = isIpad ? MAX(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height) : MIN(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height);
+                
+                CGRect rect = CGRectMake(0.0f, position, diameter, diameter);
+                CGFloat radius = MAX(CGRectGetWidth(rect)/2, CGRectGetHeight(rect)/2);
+                
+                CGPoint center = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+                
+                UIBezierPath *hexagonPath = [UIBezierPath bezierPath];
+                
+                [hexagonPath moveToPoint:CGPointMake(center.x + radius, center.y)];
+                
+                for (NSUInteger i = 0; i < 6; i++) {
+                    CGFloat theta = 2 * M_PI / 6 * i;
+                    CGFloat x = center.x + radius * cosf(theta);
+                    CGFloat y = center.y + radius * sinf(theta);
+                    [hexagonPath addLineToPoint:CGPointMake(x, y)];
+                }
+                
+                [hexagonPath closePath];
+                [hexagonPath setUsesEvenOddFillRule:YES];
+                [hexagonLayer setPath:[hexagonPath CGPath]];
+                [hexagonLayer setFillColor:[[UIColor clearColor] CGColor]]; //clearColor
+                
+                CGFloat bottomBarHeight = isIpad ? 51 : 72;
+                
+                UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, diameter, screenHeight - bottomBarHeight) cornerRadius:0];
+                [path appendPath:hexagonPath];
+                [path setUsesEvenOddFillRule:YES];
+                
+                CAShapeLayer *fillLayer = [CAShapeLayer layer];
+                fillLayer.name = @"fillLayer";
+                fillLayer.path = path.CGPath;
+                fillLayer.fillRule = kCAFillRuleEvenOdd;
+                fillLayer.fillColor = [UIColor blackColor].CGColor;
+                fillLayer.opacity = 0.5;
+                [viewController.view.layer addSublayer:fillLayer];
+                break;
+            }
+                
+            case FSEditModeCircular: {
+                CAShapeLayer *circleLayer = [CAShapeLayer layer];
+                
+                CGFloat diameter = isIpad ? MAX(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height) : MIN(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height);
+                
+                UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(0.0f, position, diameter, diameter)];
+                [circlePath setUsesEvenOddFillRule:YES];
+                [circleLayer setPath:[circlePath CGPath]];
+                [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
+                
+                CGFloat bottomBarHeight = isIpad ? 51 : 72;
+                
+                UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, diameter, screenHeight - bottomBarHeight) cornerRadius:0];
+                [path appendPath:circlePath];
+                [path setUsesEvenOddFillRule:YES];
+                
+                CAShapeLayer *fillLayer = [CAShapeLayer layer];
+                fillLayer.name = @"fillLayer";
+                fillLayer.path = path.CGPath;
+                fillLayer.fillRule = kCAFillRuleEvenOdd;
+                fillLayer.fillColor = [UIColor blackColor].CGColor;
+                fillLayer.opacity = 0.5;
+                [viewController.view.layer addSublayer:fillLayer];
+                break;
+            }
+        }
     }
 }
 
@@ -299,7 +272,7 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
     if ([[mediaInfo allKeys] containsObject:UIImagePickerControllerEditedImage]) {
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:mediaInfo];
         dic[UIImagePickerControllerCircularEditedImage] = [dic[UIImagePickerControllerEditedImage] circularImage];
-        dic[UIImagePickerControllerHexagonalEditedImage] = [dic[UIImagePickerControllerEditedImage] hexagonalImage];
+        dic[UIImagePickerControllerHexagonalEditedImage] = [dic[UIImagePickerControllerEditedImage] hexagonalImage:_fillColor];
 
         mediaInfo = [NSDictionary dictionaryWithDictionary:dic];
     }
@@ -373,6 +346,7 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
     switch (self.mediaType) {
         case FSMediaTypePhoto:
         {
+            NSString *title = kTakePhotoString;
             [alertController addAction:[UIAlertAction actionWithTitle:kTakePhotoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takePhotoFromCamera];
             }]];
@@ -591,58 +565,56 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
     return newImage;
 }
 
-- (UIImage *)hexagonalImage
+- (UIImage *)hexagonalImage {
+    
+    return [self hexagonalImage:[UIColor blackColor]];
+}
+
+- (UIImage *)hexagonalImage:(UIColor *)fillColor
 {
-    // This function returns a newImage, based on image, that has been:
-    // - scaled to fit in (CGRect) rect
-    // - and cropped within a hexagon of radius: min(rectHeight/2, rectWidth/2)
-    
-    //Create the bitmap graphics context
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(self.size.width, self.size.height), NO, 0.0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    //Get the width and heights
+
     CGFloat imageWidth = self.size.width;
     CGFloat imageHeight = self.size.height;
-    CGFloat rectWidth = self.size.width;
-    CGFloat rectHeight = self.size.height;
     
-    //Calculate the scale factor
-    CGFloat scaleFactorX = rectWidth/imageWidth;
-    CGFloat scaleFactorY = rectHeight/imageHeight;
+    CGFloat hexRadius = MAX(imageWidth/2, imageHeight/2);
+
+    CGSize newImageSize = CGSizeMake(hexRadius*2.f, hexRadius*2.f);
     
-    //Calculate the centre of the hexagon
-    CGFloat imageCentreX = rectWidth/2;
-    CGFloat imageCentreY = rectHeight/2;
+    CGPoint imageCenter = CGPointMake(hexRadius, hexRadius); //Calculate the center of the hexagon
     
-    
-    CGFloat hexRadius = MIN(rectWidth/2, rectHeight/2);
-    UIBezierPath *hexagonPath = [UIBezierPath bezierPath];
-    
-    [hexagonPath moveToPoint:CGPointMake(imageCentreX + hexRadius, imageCentreY + 0)];
-    
-    for (NSUInteger i = 0; i < 6; i++)
-    {
+    UIBezierPath *hexagonPath = [UIBezierPath bezierPath]; // Create the hexagon path
+    [hexagonPath moveToPoint:CGPointMake(imageCenter.x + hexRadius, imageCenter.y + 0)];
+    for (NSUInteger i = 0; i < 6; i++) {
         CGFloat theta = 2 * M_PI / 6 * i;
-        CGFloat x = imageCentreX + hexRadius * cosf(theta);
-        CGFloat y = imageCentreY + hexRadius * sinf(theta);
+        CGFloat x = imageCenter.x + hexRadius * cosf(theta);
+        CGFloat y = imageCenter.y + hexRadius * sinf(theta);
         [hexagonPath addLineToPoint:CGPointMake(x, y)];
     }
-    
     [hexagonPath closePath];
+    
+    //Create the bitmap graphics context
+    UIGraphicsBeginImageContextWithOptions(newImageSize, NO, 0.0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
     
     // Create and CLIP to a HEXAGONAL Path
     CGContextBeginPath(context);
     CGContextAddPath(context, [hexagonPath CGPath]);
     CGContextClosePath(context);
     CGContextClip(context);
+
     
+    // Fill the background
+    CGContextSetFillColorWithColor(context, fillColor ? [fillColor CGColor] : [[UIColor blackColor] CGColor]);
+    CGContextFillRect(context, CGRectMake(0.f, 0.f, newImageSize.width, newImageSize.height));
+
     //Set the SCALE factor for the graphics context
     //All future draw calls will be scaled by this factor
-    CGContextScaleCTM (context, scaleFactorX, scaleFactorY);
+    CGContextScaleCTM (context, 1.f, 1.f);
     
-    // Draw the IMAGE
-    CGRect myRect = CGRectMake(0, 0, imageWidth, imageHeight);
+    // Draw the IMAGE centered in the clipping path
+    CGPoint origin = CGPointMake((2.f*hexRadius-imageWidth)/2.f, (2.f*hexRadius-imageHeight)/2.f);
+    CGRect myRect = CGRectMake(origin.x, origin.y, imageWidth, imageHeight);
     [self drawInRect:myRect];
     
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();

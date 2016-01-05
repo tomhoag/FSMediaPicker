@@ -49,6 +49,7 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerHexagonalEditedImage;
 
 @property (assign, nonatomic) FSMediaType mediaType;
 @property (assign, nonatomic) FSEditMode  editMode;
+@property (assign, nonatomic) UIColor *fillColor;
 
 @property (assign, nonatomic) id<FSMediaPickerDelegate> delegate;
 
@@ -79,6 +80,7 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerHexagonalEditedImage;
 
 - (UIImage *)circularImage;
 - (UIImage *)hexagonalImage;
+- (UIImage *)hexagonalImage:(UIColor *)fillColor;
 
 @end
 
