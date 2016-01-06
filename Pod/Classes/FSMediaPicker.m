@@ -12,7 +12,7 @@
 #import <objc/runtime.h>
 
 #define LocalizedString(key) \
-NSLocalizedStringFromTableInBundle(key, @"FSMediaPicker", [NSBundle bundleWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"FSMediaPicker.bundle"]], nil)
+NSLocalizedStringFromTableInBundle(key, @"FSMediaPicker", [NSBundle bundleWithPath:[[[NSBundle bundleForClass:[self class]] bundlePath] stringByAppendingPathComponent:@"FSMediaPicker.bundle"]], nil)
 
 #define kTakePhotoString LocalizedString(@"Take photo")
 #define kSelectPhotoFromLibraryString LocalizedString(@"Select photo from photo library")
@@ -346,7 +346,6 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
     switch (self.mediaType) {
         case FSMediaTypePhoto:
         {
-            NSString *title = kTakePhotoString;
             [alertController addAction:[UIAlertAction actionWithTitle:kTakePhotoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takePhotoFromCamera];
             }]];
