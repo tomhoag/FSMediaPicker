@@ -21,7 +21,7 @@ NSLocalizedStringFromTableInBundle(key, @"FSMediaPicker", [NSBundle bundleWithPa
 #define kCancelString LocalizedString(@"Cancel")
 
 NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerControllerCircularEditedImage;";
-NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerControllerHexagonalEditedImage;";
+NSString const * UIImagePickerControllerHexagonalEditedImage = @" FSImagePickerControllerHexagonalEditedImage;";
 
 @interface FSMediaPicker ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -64,6 +64,7 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
 
 - (void)showFromView:(UIView *)view
 {
+
     if ([UIAlertController class]) {
         [self showAlertController:view];
     } else {
@@ -123,7 +124,7 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
     }
 }
 
-#pragma mark - UIImagePickerControllerDelegate
+#pragma mark - UIImagePickerController Delegate
 
 - (void)imagePickerController:(FSImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -137,108 +138,191 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
     [self delegatePerformCancel];
 }
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    if ([viewController isKindOfClass:NSClassFromString(@"PLUIImageViewController")] && self.editMode && [navigationController.viewControllers count] == 3) {
-        
-        CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-        
-        UIView *plCropOverlay = [[viewController.view.subviews objectAtIndex:1] subviews][0];
-        
-        plCropOverlay.hidden = YES;
-        
-        int position = 0;
-        
-        if (screenHeight == 568){
-            position = 124;
-        } else {
-            position = 80;
-        }
-        
-        BOOL isIpad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-        
-        if (!isIpad) {
-            UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 320, 50)];
-            [moveLabel setText:@"Move and Scale"];
-            [moveLabel setTextAlignment:NSTextAlignmentCenter];
-            [moveLabel setTextColor:[UIColor whiteColor]];
-            [viewController.view addSubview:moveLabel];
-        }
-        
+-(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
+    if ([navigationController.viewControllers count] == 3 && self.editMode &&
+        ([[[[navigationController.viewControllers objectAtIndex:2] class] description] isEqualToString:@"PUUIImageViewController"] || [[[[navigationController.viewControllers objectAtIndex:2] class] description] isEqualToString:@"PLUIImageViewController"]))
+    {
         switch (self.editMode) {
-            case FSEditModeNone: // No editing of image 
-            case FSEditModeStandard: // 0 will never occur
+            case FSEditModeCircular:
+                [self addCircleOverlayToImagePicker:viewController];
                 break;
-            
-            case FSEditModeHexagon: {
-                CAShapeLayer *hexagonLayer = [CAShapeLayer layer];
-                CGFloat diameter = isIpad ? MAX(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height) : MIN(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height);
-                
-                CGRect rect = CGRectMake(0.0f, position, diameter, diameter);
-                CGFloat radius = MAX(CGRectGetWidth(rect)/2, CGRectGetHeight(rect)/2);
-                
-                CGPoint center = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
-                
-                UIBezierPath *hexagonPath = [UIBezierPath bezierPath];
-                
-                [hexagonPath moveToPoint:CGPointMake(center.x + radius, center.y)];
-                
-                for (NSUInteger i = 0; i < 6; i++) {
-                    CGFloat theta = 2 * M_PI / 6 * i;
-                    CGFloat x = center.x + radius * cosf(theta);
-                    CGFloat y = center.y + radius * sinf(theta);
-                    [hexagonPath addLineToPoint:CGPointMake(x, y)];
-                }
-                
-                [hexagonPath closePath];
-                [hexagonPath setUsesEvenOddFillRule:YES];
-                [hexagonLayer setPath:[hexagonPath CGPath]];
-                [hexagonLayer setFillColor:[[UIColor clearColor] CGColor]]; //clearColor
-                
-                CGFloat bottomBarHeight = isIpad ? 51 : 72;
-                
-                UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, diameter, screenHeight - bottomBarHeight) cornerRadius:0];
-                [path appendPath:hexagonPath];
-                [path setUsesEvenOddFillRule:YES];
-                
-                CAShapeLayer *fillLayer = [CAShapeLayer layer];
-                fillLayer.name = @"fillLayer";
-                fillLayer.path = path.CGPath;
-                fillLayer.fillRule = kCAFillRuleEvenOdd;
-                fillLayer.fillColor = [UIColor blackColor].CGColor;
-                fillLayer.opacity = 0.5;
-                [viewController.view.layer addSublayer:fillLayer];
+            case FSEditModeHexagonal:
+                [self addHexagonalOverlayToImagePicker:viewController];
                 break;
-            }
-                
-            case FSEditModeCircular: {
-                CAShapeLayer *circleLayer = [CAShapeLayer layer];
-                
-                CGFloat diameter = isIpad ? MAX(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height) : MIN(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height);
-                
-                UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(0.0f, position, diameter, diameter)];
-                [circlePath setUsesEvenOddFillRule:YES];
-                [circleLayer setPath:[circlePath CGPath]];
-                [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
-                
-                CGFloat bottomBarHeight = isIpad ? 51 : 72;
-                
-                UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, diameter, screenHeight - bottomBarHeight) cornerRadius:0];
-                [path appendPath:circlePath];
-                [path setUsesEvenOddFillRule:YES];
-                
-                CAShapeLayer *fillLayer = [CAShapeLayer layer];
-                fillLayer.name = @"fillLayer";
-                fillLayer.path = path.CGPath;
-                fillLayer.fillRule = kCAFillRuleEvenOdd;
-                fillLayer.fillColor = [UIColor blackColor].CGColor;
-                fillLayer.opacity = 0.5;
-                [viewController.view.layer addSublayer:fillLayer];
+            case FSEditModeNone:
+            case FSEditModeStandard:
+            default:
                 break;
-            }
         }
     }
 }
+
+#pragma mark -  Overlays
+// https://gist.github.com/andreacipriani/74ea67db8f17673f1b8b
+
+-(void)addCircleOverlayToImagePicker:(UIViewController*)viewController
+{
+    UIColor *circleColor = [UIColor clearColor];
+    UIColor *maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+    
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
+    
+    UIView *plCropOverlayCropView; //The default crop view, we wan't to hide it and show our circular one
+    UIView *plCropOverlayBottomBar; //On iPhone is the bar with "cancel" and "choose" button, on Ipad is an Image View with a label saying "Scale and move"
+    
+    //Subviews hirearchy is different in iPad/iPhone:
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        
+        plCropOverlayCropView = [viewController.view.subviews objectAtIndex:1];
+        plCropOverlayBottomBar = [[[[viewController.view subviews] objectAtIndex:1] subviews] objectAtIndex:1];
+        
+        //Protect against iOS changes...
+        if (! [[[plCropOverlayCropView class] description] isEqualToString:@"PLCropOverlay"]){
+            NSLog(@"Image Picker with circle overlay: PLCropOverlay not found");
+            return;
+        }
+        if (! [[[plCropOverlayBottomBar class] description] isEqualToString:@"UIImageView"]){
+            NSLog(@"Image Picker with circle overlay: PLCropOverlayBottomBar not found");
+            return;
+        }
+    }
+    else{
+        plCropOverlayCropView = [[[viewController.view.subviews objectAtIndex:1] subviews] firstObject];
+        plCropOverlayBottomBar = [[[[viewController.view subviews] objectAtIndex:1] subviews] objectAtIndex:1];
+        
+        //Protect against iOS changes...
+        if (! [[[plCropOverlayCropView class] description] isEqualToString:@"PLCropOverlayCropView"]){
+            NSLog(@"Image Picker with circle overlay: PLCropOverlayCropView not found");
+            return;
+        }
+        if (! [[[plCropOverlayBottomBar class] description] isEqualToString:@"PLCropOverlayBottomBar"]){
+            NSLog(@"Image Picker with circle overlay: PLCropOverlayBottomBar not found");
+            return;
+        }
+    }
+    
+    //It seems that everything is ok, we found the CropOverlayCropView and the CropOverlayBottomBar
+    
+    plCropOverlayCropView.hidden = YES; //Hide default CropView
+    
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    //Center the circleLayer frame:
+    UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0.0f, screenHeight/2 - screenWidth/2, screenWidth, screenWidth)];
+    circlePath.usesEvenOddFillRule = YES;
+    circleLayer.path = [circlePath CGPath];
+    circleLayer.fillColor = circleColor.CGColor;
+    //Mask layer frame: it begins on y=0 and ends on y = plCropOverlayBottomBar.origin.y
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, screenWidth, screenHeight- plCropOverlayBottomBar.frame.size.height) cornerRadius:0];
+    [maskPath appendPath:circlePath];
+    maskPath.usesEvenOddFillRule = YES;
+    
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = maskPath.CGPath;
+    maskLayer.fillRule = kCAFillRuleEvenOdd;
+    maskLayer.fillColor = maskColor.CGColor;
+    [viewController.view.layer addSublayer:maskLayer];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        //On iPhone add an hint label on top saying "scale and move" or whatever you want
+        UILabel *cropLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, screenWidth, 50)];
+        [cropLabel setText:NSLocalizedString(@"Move & Scale", nil)];
+        [cropLabel setTextAlignment:NSTextAlignmentCenter];
+        [cropLabel setTextColor:[UIColor whiteColor]];
+        [viewController.view addSubview:cropLabel];
+    }
+    else{ //On iPad re-add the overlayBottomBar with the label "scale and move" because we set its parent to hidden (it's a subview of PLCropOverlay)
+        [viewController.view addSubview:plCropOverlayBottomBar];
+    }
+}
+
+-(void)addHexagonalOverlayToImagePicker:(UIViewController*)viewController
+{
+    UIColor *hexColor = [UIColor clearColor];
+    UIColor *maskColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+    
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
+    
+    UIView *plCropOverlayCropView; //The default crop view, we wan't to hide it and show our circular one
+    UIView *plCropOverlayBottomBar; //On iPhone is the bar with "cancel" and "choose" button, on Ipad is an Image View with a label saying "Scale and move"
+    
+    //Subviews hirearchy is different in iPad/iPhone:
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        
+        plCropOverlayCropView = [viewController.view.subviews objectAtIndex:1];
+        plCropOverlayBottomBar = [[[[viewController.view subviews] objectAtIndex:1] subviews] objectAtIndex:1];
+        
+        //Protect against iOS changes...
+        if (! [[[plCropOverlayCropView class] description] isEqualToString:@"PLCropOverlay"]){
+            NSLog(@"Image Picker with circle overlay: PLCropOverlay not found");
+            return;
+        }
+        if (! [[[plCropOverlayBottomBar class] description] isEqualToString:@"UIImageView"]){
+            NSLog(@"Image Picker with circle overlay: PLCropOverlayBottomBar not found");
+            return;
+        }
+    }
+    else{
+        plCropOverlayCropView = [[[viewController.view.subviews objectAtIndex:1] subviews] firstObject];
+        plCropOverlayBottomBar = [[[[viewController.view subviews] objectAtIndex:1] subviews] objectAtIndex:1];
+        
+        //Protect against iOS changes...
+        if (! [[[plCropOverlayCropView class] description] isEqualToString:@"PLCropOverlayCropView"]){
+            NSLog(@"Image Picker with circle overlay: PLCropOverlayCropView not found");
+            return;
+        }
+        if (! [[[plCropOverlayBottomBar class] description] isEqualToString:@"PLCropOverlayBottomBar"]){
+            NSLog(@"Image Picker with circle overlay: PLCropOverlayBottomBar not found");
+            return;
+        }
+    }
+    
+    //It seems that everything is ok, we found the CropOverlayCropView and the CropOverlayBottomBar
+    
+    plCropOverlayCropView.hidden = YES; //Hide default CropView
+    
+    CAShapeLayer *hexLayer = [CAShapeLayer layer];
+    CGFloat radius = screenWidth/2.f;
+    CGRect rect = CGRectMake(0.f, screenHeight/2-screenWidth/2, screenWidth, screenWidth);
+    CGPoint center = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+    UIBezierPath *hexPath = [UIBezierPath bezierPath];
+    [hexPath moveToPoint:CGPointMake(center.x + radius, center.y)];
+
+    for(NSUInteger i=0;i<6;i++){
+        CGFloat theta = 2 * M_PI / 6 * i;
+        CGFloat x = center.x + radius * cosf(theta);
+        CGFloat y = center.y + radius * sinf(theta);
+        [hexPath addLineToPoint:CGPointMake(x, y)];
+    }
+    [hexPath closePath];
+    hexPath.usesEvenOddFillRule = YES;
+    hexLayer.path = [hexPath CGPath];
+    hexLayer.fillColor = hexColor.CGColor;
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, screenWidth, screenHeight- plCropOverlayBottomBar.frame.size.height) cornerRadius:0];
+    [maskPath appendPath:hexPath];
+    maskPath.usesEvenOddFillRule = YES;
+    
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = maskPath.CGPath;
+    maskLayer.fillRule = kCAFillRuleEvenOdd;
+    maskLayer.fillColor = maskColor.CGColor;
+    [viewController.view.layer addSublayer:maskLayer];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        //On iPhone add an hint label on top saying "scale and move" or whatever you want
+        UILabel *cropLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, screenWidth, 50)];
+        [cropLabel setText:NSLocalizedString(@"Move & Scale", nil)];
+        [cropLabel setTextAlignment:NSTextAlignmentCenter];
+        [cropLabel setTextColor:[UIColor whiteColor]];
+        [viewController.view addSubview:cropLabel];
+    }
+    else{ //On iPad re-add the overlayBottomBar with the label "scale and move" because we set its parent to hidden (it's a subview of PLCropOverlay)
+        [viewController.view addSubview:plCropOverlayBottomBar];
+    }
+}
+
 
 #pragma mark - Setter & Getter
 
@@ -272,8 +356,7 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
     if ([[mediaInfo allKeys] containsObject:UIImagePickerControllerEditedImage]) {
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:mediaInfo];
         dic[UIImagePickerControllerCircularEditedImage] = [dic[UIImagePickerControllerEditedImage] circularImage];
-        dic[UIImagePickerControllerHexagonalEditedImage] = [dic[UIImagePickerControllerEditedImage] hexagonalImage:_fillColor];
-
+        dic[UIImagePickerControllerHexagonalEditedImage] = [dic[UIImagePickerControllerEditedImage] hexagonalImage];
         mediaInfo = [NSDictionary dictionaryWithDictionary:dic];
     }
     if (_finishBlock) {
@@ -483,7 +566,6 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
     return nil;
 }
 
-
 - (NSURL *)mediaURL
 {
     if ([self.allKeys containsObject:UIImagePickerControllerMediaURL]) {
@@ -571,12 +653,12 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
 
 - (UIImage *)hexagonalImage:(UIColor *)fillColor
 {
-
+    
     CGFloat imageWidth = self.size.width;
     CGFloat imageHeight = self.size.height;
     
     CGFloat hexRadius = MAX(imageWidth/2, imageHeight/2);
-
+    
     CGSize newImageSize = CGSizeMake(hexRadius*2.f, hexRadius*2.f);
     
     CGPoint imageCenter = CGPointMake(hexRadius, hexRadius); //Calculate the center of the hexagon
@@ -601,12 +683,12 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
     CGContextAddPath(context, [hexagonPath CGPath]);
     CGContextClosePath(context);
     CGContextClip(context);
-
+    
     
     // Fill the background
     CGContextSetFillColorWithColor(context, fillColor ? [fillColor CGColor] : [[UIColor blackColor] CGColor]);
     CGContextFillRect(context, CGRectMake(0.f, 0.f, newImageSize.width, newImageSize.height));
-
+    
     //Set the SCALE factor for the graphics context
     //All future draw calls will be scaled by this factor
     CGContextScaleCTM (context, 1.f, 1.f);
@@ -621,7 +703,6 @@ NSString const * UIImagePickerControllerHexagonalEditedImage = @" UIImagePickerC
     
     return newImage;
 }
-
 
 @end
 
@@ -670,4 +751,14 @@ const char * mediaPickerKey;
 
 
 @end
+
+@implementation FSImagePickerController
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
+@end
+
 

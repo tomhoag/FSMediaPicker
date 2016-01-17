@@ -10,8 +10,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "FSImagePickerController.h"
-
 #ifndef LocalizedStrings
 #define LocalizedStrings(key) \
 NSLocalizedStringFromTableInBundle(key, @"FSMediaPicker", [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"FSMediaPicker.bundle"]], nil)
@@ -28,19 +26,18 @@ typedef enum {
 typedef enum {
     FSEditModeStandard = 0,
     FSEditModeCircular = 1,
-    FSEditModeHexagon  = 2,
+    FSEditModeHexagonal = 2,
     FSEditModeNone     = 3
 } FSEditMode;
 
 UIKIT_EXTERN NSString const * UIImagePickerControllerCircularEditedImage;
-UIKIT_EXTERN NSString const * UIImagePickerControllerHexagonalEditedImage;
 
 @protocol FSMediaPickerDelegate <NSObject>
 
 @required
 - (void)mediaPicker:(FSMediaPicker *)mediaPicker didFinishWithMediaInfo:(NSDictionary *)mediaInfo;
 @optional
-- (void)mediaPicker:(FSMediaPicker *)mediaPicker willPresentImagePickerController:(FSImagePickerController *)imagePicker;
+- (void)mediaPicker:(FSMediaPicker *)mediaPicker willPresentImagePickerController:(UIImagePickerController *)imagePicker;
 - (void)mediaPickerDidCancel:(FSMediaPicker *)mediaPicker;
 
 @end
@@ -49,18 +46,16 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerHexagonalEditedImage;
 
 @property (assign, nonatomic) FSMediaType mediaType;
 @property (assign, nonatomic) FSEditMode  editMode;
-@property (assign, nonatomic) UIColor *fillColor;
 
 @property (assign, nonatomic) id<FSMediaPickerDelegate> delegate;
 
-@property (copy, nonatomic) void(^willPresentImagePickerBlock)(FSMediaPicker *mediaPicker, FSImagePickerController *imagePicker);
+@property (copy, nonatomic) void(^willPresentImagePickerBlock)(FSMediaPicker *mediaPicker, UIImagePickerController *imagePicker);
 @property (copy, nonatomic) void(^finishBlock)(FSMediaPicker *mediaPicker, NSDictionary *mediaInfo);
 @property (copy, nonatomic) void(^cancelBlock)(FSMediaPicker *mediaPicker);
 
 - (instancetype)initWithDelegate:(id<FSMediaPickerDelegate>)delegate;
 
 - (void)showFromView:(UIView *)view;
--(void)show;
 
 @end
 
@@ -80,7 +75,6 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerHexagonalEditedImage;
 
 - (UIImage *)circularImage;
 - (UIImage *)hexagonalImage;
-- (UIImage *)hexagonalImage:(UIColor *)fillColor;
 
 @end
 
@@ -116,12 +110,14 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerHexagonalEditedImage;
 
 @end
 
-@interface FSImagePickerController (FSMediaPicker)
+@interface UIImagePickerController (FSMediaPicker)
 
 @property (strong, nonatomic) FSMediaPicker *mediaPicker;
 
 @end
 
+@interface FSImagePickerController : UIImagePickerController
 
+@end
 
 
