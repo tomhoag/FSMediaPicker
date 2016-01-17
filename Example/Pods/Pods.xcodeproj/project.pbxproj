@@ -1,0 +1,852 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29024FE33D2927CEFDDB3AC8 /* FSMediaPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EDD21397D2CD065FC86B174 /* FSMediaPicker.h */; };
+		307EBF2B3278BBE36258D3D8 /* FSMediaPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EDD21397D2CD065FC86B174 /* FSMediaPicker.h */; };
+		37458E608663360FD8EEE4DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E87A02A711A6BC3405E484 /* Foundation.framework */; };
+		48F7C88015A195412978FF01 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A0FA01F2E13508E78B2C5 /* en.lproj */; };
+		49E1FCB85DBE05B6BF376F70 /* Pods-FSMediaPicker-FSMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 082549F81A7BAA69F5B92B27 /* Pods-FSMediaPicker-FSMediaPicker-dummy.m */; };
+		602DCD94C9FF8A98F5BD0675 /* Pods-FSMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 720CE072D92CBA452604B3F5 /* Pods-FSMediaPicker-dummy.m */; };
+		656F9C227C20E7D392DEEB4D /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C8F9919AAD6445ABF9E9E88D /* zh-Hant.lproj */; };
+		7B59D9B040AD8D486A05D880 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C8A88DD0D2D9EAEC8D81 /* Pods-Tests-dummy.m */; };
+		8F8A077926286197EDE076DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E87A02A711A6BC3405E484 /* Foundation.framework */; };
+		917673F32425AE9FA44F73CF /* FSMediaPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A8B356673882DCB8465D67 /* FSMediaPicker.m */; };
+		AB64C4C7FBDFA6DE564D0983 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E87A02A711A6BC3405E484 /* Foundation.framework */; };
+		AC40CB98548BF160235F88BB /* FSMediaPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A8B356673882DCB8465D67 /* FSMediaPicker.m */; };
+		CE40CE5EB6DC39056A970DDF /* Pods-Tests-FSMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 192A98E3AF981D9CE75951D1 /* Pods-Tests-FSMediaPicker-dummy.m */; };
+		E0A524DF806313542E82D8B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E87A02A711A6BC3405E484 /* Foundation.framework */; };
+		F5D4D66746702CD444F99C4D /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 0FF39395CA190355B4EE1BAC /* zh-Hans.lproj */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		705A97BF9A3AC6C93757A1C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 444C879F960312547FEA0AFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D33B567961D0B4AA0FD22B6C;
+			remoteInfo = FSMediaPicker;
+		};
+		9523D44EA72EF7E598A488D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 444C879F960312547FEA0AFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7BD4619472100883495A119;
+			remoteInfo = "Pods-Tests-FSMediaPicker";
+		};
+		B3157AF7B4F64B2E351D4BEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 444C879F960312547FEA0AFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D33B567961D0B4AA0FD22B6C;
+			remoteInfo = FSMediaPicker;
+		};
+		C6A37755BBBF2506ED6636F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 444C879F960312547FEA0AFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39C6DDC771FC57A0500CCECD;
+			remoteInfo = "Pods-FSMediaPicker-FSMediaPicker";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		082549F81A7BAA69F5B92B27 /* Pods-FSMediaPicker-FSMediaPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FSMediaPicker-FSMediaPicker-dummy.m"; sourceTree = "<group>"; };
+		08443A692A9E1B1C17780F78 /* FSMediaPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FSMediaPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		08A8B356673882DCB8465D67 /* FSMediaPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSMediaPicker.m; path = Pod/Classes/FSMediaPicker.m; sourceTree = "<group>"; };
+		0EFB1FE9420E47E494F63363 /* Pods-FSMediaPicker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FSMediaPicker-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0FF39395CA190355B4EE1BAC /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "Pod/Assets/zh-Hans.lproj"; sourceTree = "<group>"; };
+		192A98E3AF981D9CE75951D1 /* Pods-Tests-FSMediaPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-FSMediaPicker-dummy.m"; path = "../Pods-Tests-FSMediaPicker/Pods-Tests-FSMediaPicker-dummy.m"; sourceTree = "<group>"; };
+		2A5B528BEEE56EBF042DC6D7 /* Pods-FSMediaPicker-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FSMediaPicker-resources.sh"; sourceTree = "<group>"; };
+		38E464EE9AF5C1DD86749BAA /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		3C92BC98100E6C454A0AE60D /* Pods-FSMediaPicker-FSMediaPicker-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FSMediaPicker-FSMediaPicker-Private.xcconfig"; sourceTree = "<group>"; };
+		3D92C8A88DD0D2D9EAEC8D81 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		41E87A02A711A6BC3405E484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		430E1E654A1A97F8C03F4D77 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4C6B6FF1DB2FB94D11051CE5 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E296A8EE3C4E2C89723338E /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
+		553D64B07A75EC471286157D /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5924C400F4D6F4FCFC3D7EB7 /* libPods-Tests-FSMediaPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-FSMediaPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CBD52B379B5F2A3487A7B5D /* libPods-FSMediaPicker-FSMediaPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FSMediaPicker-FSMediaPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		720CE072D92CBA452604B3F5 /* Pods-FSMediaPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FSMediaPicker-dummy.m"; sourceTree = "<group>"; };
+		7EDD21397D2CD065FC86B174 /* FSMediaPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSMediaPicker.h; path = Pod/Classes/FSMediaPicker.h; sourceTree = "<group>"; };
+		8A3A0FA01F2E13508E78B2C5 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Pod/Assets/en.lproj; sourceTree = "<group>"; };
+		8CDE4DB4D2AE9E73EAAA1104 /* Pods-Tests-FSMediaPicker-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FSMediaPicker-Private.xcconfig"; path = "../Pods-Tests-FSMediaPicker/Pods-Tests-FSMediaPicker-Private.xcconfig"; sourceTree = "<group>"; };
+		A07766E4459A860FDCFD8DD0 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A69CC9C666F0CFB01335BADA /* Pods-Tests-FSMediaPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FSMediaPicker.xcconfig"; path = "../Pods-Tests-FSMediaPicker/Pods-Tests-FSMediaPicker.xcconfig"; sourceTree = "<group>"; };
+		A98095BE5E12A7CB28E4BD26 /* Pods-FSMediaPicker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FSMediaPicker-acknowledgements.plist"; sourceTree = "<group>"; };
+		AC949E0DDDD97DB07DEE54C6 /* Pods-FSMediaPicker-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FSMediaPicker-environment.h"; sourceTree = "<group>"; };
+		B2C4E30EAB201188F2779CAD /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
+		B7ABF280762EA0098666C6DA /* Pods-FSMediaPicker-FSMediaPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FSMediaPicker-FSMediaPicker-prefix.pch"; sourceTree = "<group>"; };
+		BB060EEEBDA0F306A81A4627 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		C8F5718D77785F4B75C785AC /* Pods-FSMediaPicker-FSMediaPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FSMediaPicker-FSMediaPicker.xcconfig"; sourceTree = "<group>"; };
+		C8F9919AAD6445ABF9E9E88D /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hant.lproj"; path = "Pod/Assets/zh-Hant.lproj"; sourceTree = "<group>"; };
+		CB3C282182105A257B276EC0 /* Pods-FSMediaPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FSMediaPicker.release.xcconfig"; sourceTree = "<group>"; };
+		CD22A6DF1FA918CF015E43A5 /* Pods-FSMediaPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FSMediaPicker.debug.xcconfig"; sourceTree = "<group>"; };
+		E3AB4D637D9C2D8093C5795A /* Pods-Tests-FSMediaPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-FSMediaPicker-prefix.pch"; path = "../Pods-Tests-FSMediaPicker/Pods-Tests-FSMediaPicker-prefix.pch"; sourceTree = "<group>"; };
+		F0E489E9E20A6498B7EBE458 /* libPods-FSMediaPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FSMediaPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96E70867BD0ACA2A24A1DF2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F8A077926286197EDE076DC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99987CB2F66E7B04CCD18D36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A54D26D7162718B5D9421FB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB64C4C7FBDFA6DE564D0983 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7ECFA0D16FF360EB12A8FD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0A524DF806313542E82D8B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B955014C49EF3E19F7328518 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37458E608663360FD8EEE4DC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AC8FB147DB5DCE07E49FADC = {
+			isa = PBXGroup;
+			children = (
+				A07766E4459A860FDCFD8DD0 /* Podfile */,
+				B1EB1EE8F6D4DE08EB62104D /* Development Pods */,
+				E0A9DE86D38D585F58E95B67 /* Frameworks */,
+				958B42FABB64495DCFC82917 /* Products */,
+				DB12DB18399A4AF987A4BF26 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		6123515B1A4A78381933D2B0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A3A0FA01F2E13508E78B2C5 /* en.lproj */,
+				0FF39395CA190355B4EE1BAC /* zh-Hans.lproj */,
+				C8F9919AAD6445ABF9E9E88D /* zh-Hant.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		958B42FABB64495DCFC82917 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08443A692A9E1B1C17780F78 /* FSMediaPicker.bundle */,
+				F0E489E9E20A6498B7EBE458 /* libPods-FSMediaPicker.a */,
+				5CBD52B379B5F2A3487A7B5D /* libPods-FSMediaPicker-FSMediaPicker.a */,
+				4C6B6FF1DB2FB94D11051CE5 /* libPods-Tests.a */,
+				5924C400F4D6F4FCFC3D7EB7 /* libPods-Tests-FSMediaPicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95AA441B3EC7ACBCC1DAD6FD /* Pods-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				553D64B07A75EC471286157D /* Pods-Tests-acknowledgements.markdown */,
+				BB060EEEBDA0F306A81A4627 /* Pods-Tests-acknowledgements.plist */,
+				3D92C8A88DD0D2D9EAEC8D81 /* Pods-Tests-dummy.m */,
+				B2C4E30EAB201188F2779CAD /* Pods-Tests-environment.h */,
+				4E296A8EE3C4E2C89723338E /* Pods-Tests-resources.sh */,
+				430E1E654A1A97F8C03F4D77 /* Pods-Tests.debug.xcconfig */,
+				38E464EE9AF5C1DD86749BAA /* Pods-Tests.release.xcconfig */,
+			);
+			name = "Pods-Tests";
+			path = "Target Support Files/Pods-Tests";
+			sourceTree = "<group>";
+		};
+		97F64D4CF062DF0FA91BA85C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				41E87A02A711A6BC3405E484 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		B1EB1EE8F6D4DE08EB62104D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9817CEB5AB73BEFA6CC31B4 /* FSMediaPicker */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		BC2CBCDC24462E0760439B44 /* Pods-FSMediaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				0EFB1FE9420E47E494F63363 /* Pods-FSMediaPicker-acknowledgements.markdown */,
+				A98095BE5E12A7CB28E4BD26 /* Pods-FSMediaPicker-acknowledgements.plist */,
+				720CE072D92CBA452604B3F5 /* Pods-FSMediaPicker-dummy.m */,
+				AC949E0DDDD97DB07DEE54C6 /* Pods-FSMediaPicker-environment.h */,
+				2A5B528BEEE56EBF042DC6D7 /* Pods-FSMediaPicker-resources.sh */,
+				CD22A6DF1FA918CF015E43A5 /* Pods-FSMediaPicker.debug.xcconfig */,
+				CB3C282182105A257B276EC0 /* Pods-FSMediaPicker.release.xcconfig */,
+			);
+			name = "Pods-FSMediaPicker";
+			path = "Target Support Files/Pods-FSMediaPicker";
+			sourceTree = "<group>";
+		};
+		D1936817874900BD261D9DF0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8F5718D77785F4B75C785AC /* Pods-FSMediaPicker-FSMediaPicker.xcconfig */,
+				3C92BC98100E6C454A0AE60D /* Pods-FSMediaPicker-FSMediaPicker-Private.xcconfig */,
+				082549F81A7BAA69F5B92B27 /* Pods-FSMediaPicker-FSMediaPicker-dummy.m */,
+				B7ABF280762EA0098666C6DA /* Pods-FSMediaPicker-FSMediaPicker-prefix.pch */,
+				A69CC9C666F0CFB01335BADA /* Pods-Tests-FSMediaPicker.xcconfig */,
+				8CDE4DB4D2AE9E73EAAA1104 /* Pods-Tests-FSMediaPicker-Private.xcconfig */,
+				192A98E3AF981D9CE75951D1 /* Pods-Tests-FSMediaPicker-dummy.m */,
+				E3AB4D637D9C2D8093C5795A /* Pods-Tests-FSMediaPicker-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-FSMediaPicker-FSMediaPicker";
+			sourceTree = "<group>";
+		};
+		DB12DB18399A4AF987A4BF26 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC2CBCDC24462E0760439B44 /* Pods-FSMediaPicker */,
+				95AA441B3EC7ACBCC1DAD6FD /* Pods-Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E0A9DE86D38D585F58E95B67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97F64D4CF062DF0FA91BA85C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9817CEB5AB73BEFA6CC31B4 /* FSMediaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				7EDD21397D2CD065FC86B174 /* FSMediaPicker.h */,
+				08A8B356673882DCB8465D67 /* FSMediaPicker.m */,
+				6123515B1A4A78381933D2B0 /* Resources */,
+				D1936817874900BD261D9DF0 /* Support Files */,
+			);
+			name = FSMediaPicker;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		01B24A5C387966EA4935D729 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29024FE33D2927CEFDDB3AC8 /* FSMediaPicker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81DA08E9DD77278E2A6EAB3B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				307EBF2B3278BBE36258D3D8 /* FSMediaPicker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		39C6DDC771FC57A0500CCECD /* Pods-FSMediaPicker-FSMediaPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 969B9F15C225B07744446D23 /* Build configuration list for PBXNativeTarget "Pods-FSMediaPicker-FSMediaPicker" */;
+			buildPhases = (
+				E453420A05CAC6CE4EB2D3F5 /* Sources */,
+				B955014C49EF3E19F7328518 /* Frameworks */,
+				01B24A5C387966EA4935D729 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A0A5FD601E5CAED059CC2C2 /* PBXTargetDependency */,
+			);
+			name = "Pods-FSMediaPicker-FSMediaPicker";
+			productName = "Pods-FSMediaPicker-FSMediaPicker";
+			productReference = 5CBD52B379B5F2A3487A7B5D /* libPods-FSMediaPicker-FSMediaPicker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B30788E732E547FC7BA8A450 /* Pods-FSMediaPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 760C8107DFF84271F43C7E17 /* Build configuration list for PBXNativeTarget "Pods-FSMediaPicker" */;
+			buildPhases = (
+				E4F2C3D457C7F93F0D0A1AB8 /* Sources */,
+				96E70867BD0ACA2A24A1DF2A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2FC1C3597E27DDBD5404DD9 /* PBXTargetDependency */,
+			);
+			name = "Pods-FSMediaPicker";
+			productName = "Pods-FSMediaPicker";
+			productReference = F0E489E9E20A6498B7EBE458 /* libPods-FSMediaPicker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C7BD4619472100883495A119 /* Pods-Tests-FSMediaPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2497554E5BACB6DDD7F9E096 /* Build configuration list for PBXNativeTarget "Pods-Tests-FSMediaPicker" */;
+			buildPhases = (
+				5FCDAD308D0F3AE2A88F02D2 /* Sources */,
+				A54D26D7162718B5D9421FB9 /* Frameworks */,
+				81DA08E9DD77278E2A6EAB3B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8B812D31881C3CC7716CB16 /* PBXTargetDependency */,
+			);
+			name = "Pods-Tests-FSMediaPicker";
+			productName = "Pods-Tests-FSMediaPicker";
+			productReference = 5924C400F4D6F4FCFC3D7EB7 /* libPods-Tests-FSMediaPicker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D33B567961D0B4AA0FD22B6C /* FSMediaPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9492C26280D5F428C7527033 /* Build configuration list for PBXNativeTarget "FSMediaPicker" */;
+			buildPhases = (
+				B0217B830252D4D408699667 /* Sources */,
+				99987CB2F66E7B04CCD18D36 /* Frameworks */,
+				FC3A781293B57CE8B4453DA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FSMediaPicker;
+			productName = FSMediaPicker;
+			productReference = 08443A692A9E1B1C17780F78 /* FSMediaPicker.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		FE8226EF355AB7DC1EB2C436 /* Pods-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0691B0269FE5AA5CB838F642 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
+			buildPhases = (
+				07A6998A47855609524DBFF7 /* Sources */,
+				B7ECFA0D16FF360EB12A8FD3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7DA3FCB957CDDB01426731A /* PBXTargetDependency */,
+			);
+			name = "Pods-Tests";
+			productName = "Pods-Tests";
+			productReference = 4C6B6FF1DB2FB94D11051CE5 /* libPods-Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		444C879F960312547FEA0AFE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 1FA9E82B7BF3719512808B76 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3AC8FB147DB5DCE07E49FADC;
+			productRefGroup = 958B42FABB64495DCFC82917 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D33B567961D0B4AA0FD22B6C /* FSMediaPicker */,
+				B30788E732E547FC7BA8A450 /* Pods-FSMediaPicker */,
+				39C6DDC771FC57A0500CCECD /* Pods-FSMediaPicker-FSMediaPicker */,
+				FE8226EF355AB7DC1EB2C436 /* Pods-Tests */,
+				C7BD4619472100883495A119 /* Pods-Tests-FSMediaPicker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC3A781293B57CE8B4453DA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48F7C88015A195412978FF01 /* en.lproj in Resources */,
+				F5D4D66746702CD444F99C4D /* zh-Hans.lproj in Resources */,
+				656F9C227C20E7D392DEEB4D /* zh-Hant.lproj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07A6998A47855609524DBFF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B59D9B040AD8D486A05D880 /* Pods-Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FCDAD308D0F3AE2A88F02D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				917673F32425AE9FA44F73CF /* FSMediaPicker.m in Sources */,
+				CE40CE5EB6DC39056A970DDF /* Pods-Tests-FSMediaPicker-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0217B830252D4D408699667 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E453420A05CAC6CE4EB2D3F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC40CB98548BF160235F88BB /* FSMediaPicker.m in Sources */,
+				49E1FCB85DBE05B6BF376F70 /* Pods-FSMediaPicker-FSMediaPicker-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4F2C3D457C7F93F0D0A1AB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				602DCD94C9FF8A98F5BD0675 /* Pods-FSMediaPicker-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4A0A5FD601E5CAED059CC2C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FSMediaPicker;
+			target = D33B567961D0B4AA0FD22B6C /* FSMediaPicker */;
+			targetProxy = B3157AF7B4F64B2E351D4BEF /* PBXContainerItemProxy */;
+		};
+		A8B812D31881C3CC7716CB16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FSMediaPicker;
+			target = D33B567961D0B4AA0FD22B6C /* FSMediaPicker */;
+			targetProxy = 705A97BF9A3AC6C93757A1C2 /* PBXContainerItemProxy */;
+		};
+		D2FC1C3597E27DDBD5404DD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-FSMediaPicker-FSMediaPicker";
+			target = 39C6DDC771FC57A0500CCECD /* Pods-FSMediaPicker-FSMediaPicker */;
+			targetProxy = C6A37755BBBF2506ED6636F2 /* PBXContainerItemProxy */;
+		};
+		D7DA3FCB957CDDB01426731A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-FSMediaPicker";
+			target = C7BD4619472100883495A119 /* Pods-Tests-FSMediaPicker */;
+			targetProxy = 9523D44EA72EF7E598A488D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1AABA5AB264D1CDEA9C9C4E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38E464EE9AF5C1DD86749BAA /* Pods-Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2BF2604B25A7450B035B7421 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C92BC98100E6C454A0AE60D /* Pods-FSMediaPicker-FSMediaPicker-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-FSMediaPicker-FSMediaPicker/Pods-FSMediaPicker-FSMediaPicker-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F9EE1B978AA506903FE6B3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 430E1E654A1A97F8C03F4D77 /* Pods-Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5EE1E8DDC9D9866720772AA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6556C6EB195589036B1F5178 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		723ADFB737EF3D7A51261E7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		7F5CE3F1D7BF7E3E08D56D12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD22A6DF1FA918CF015E43A5 /* Pods-FSMediaPicker.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7FAB45121FBBF2015487BA8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB3C282182105A257B276EC0 /* Pods-FSMediaPicker.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		818958C10F8C7E19AF826729 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CDE4DB4D2AE9E73EAAA1104 /* Pods-Tests-FSMediaPicker-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-FSMediaPicker/Pods-Tests-FSMediaPicker-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B50C8713DC898144052CDAB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CDE4DB4D2AE9E73EAAA1104 /* Pods-Tests-FSMediaPicker-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-FSMediaPicker/Pods-Tests-FSMediaPicker-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D15965D958F9FF467520A281 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		F661E76389DFA84FEEF65E1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C92BC98100E6C454A0AE60D /* Pods-FSMediaPicker-FSMediaPicker-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-FSMediaPicker-FSMediaPicker/Pods-FSMediaPicker-FSMediaPicker-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0691B0269FE5AA5CB838F642 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F9EE1B978AA506903FE6B3C /* Debug */,
+				1AABA5AB264D1CDEA9C9C4E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FA9E82B7BF3719512808B76 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6556C6EB195589036B1F5178 /* Debug */,
+				5EE1E8DDC9D9866720772AA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2497554E5BACB6DDD7F9E096 /* Build configuration list for PBXNativeTarget "Pods-Tests-FSMediaPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B50C8713DC898144052CDAB8 /* Debug */,
+				818958C10F8C7E19AF826729 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		760C8107DFF84271F43C7E17 /* Build configuration list for PBXNativeTarget "Pods-FSMediaPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F5CE3F1D7BF7E3E08D56D12 /* Debug */,
+				7FAB45121FBBF2015487BA8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9492C26280D5F428C7527033 /* Build configuration list for PBXNativeTarget "FSMediaPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				723ADFB737EF3D7A51261E7F /* Debug */,
+				D15965D958F9FF467520A281 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		969B9F15C225B07744446D23 /* Build configuration list for PBXNativeTarget "Pods-FSMediaPicker-FSMediaPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F661E76389DFA84FEEF65E1B /* Debug */,
+				2BF2604B25A7450B035B7421 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 444C879F960312547FEA0AFE /* Project object */;
+}
